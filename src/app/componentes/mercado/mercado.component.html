@@ -1,0 +1,110 @@
+<br>
+<form class="form-inline">
+
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" id="produto" name="produto" [(ngModel)]="nome" placeholder="Pesquisar Nome">
+  </div>
+  <button type="button" class="btn btn-primary mb-2">Buscar</button>
+
+  <button type="button" [routerLink]="['/mercados']" routerLinkActive="router-link-active" style="margin-left: 5px;"
+    class="btn btn-success mb-2">Novo</button>
+</form>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Tabela de Usuários</h6>
+    </div>
+  </div>
+
+
+
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRODUTO</th>
+            <th scope="col">PREÇO</th>
+            <th scope="col">COLABORADOR</th>
+            <th scope="col">NOME DO MERCADO</th>
+            <th scope="col">EXCLUIR</th>
+            <th scope="col">EDITAR</th>
+          </tr>
+        </thead>
+        <tfoot>
+
+
+
+
+          <th scope="col">ID</th>
+          <th scope="col">PRODUTO</th>
+          <th scope="col">PREÇO</th>
+          <th scope="col">COLABORADOR</th>
+          <th scope="col">NOME DO MERCADO</th>
+          <th scope="col">EXCLUIR</th>
+          <th scope="col">EDITAR</th>
+
+        </tfoot>
+        <tbody>
+          <tr>
+          <tr *ngFor="let mercado of merc let i = index">
+
+            <td>{{mercado.id}}</td>
+            <td>{{mercado.produto}}</td>
+            <td>{{mercado.preco}}</td>
+            <td>{{mercado.colaborador}}</td>
+            <td>{{mercado.nomeMercado}}</td>
+            <td> <button (click)="deletarMercadinho(mercado.id, i)" class="btn btn-danger">Excluir</button> </td>
+            <td> <button class="btn btn-warning">Editar</button> </td>
+
+
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+
+      <!-- RODAPÉ DA PAGINACÃO-->
+      <div class="text-center">
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright &copy; ID PACK</span>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
