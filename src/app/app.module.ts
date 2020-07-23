@@ -9,11 +9,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { HomeComponent } from './home/home.component';
 import { MercadoComponent } from './componentes/mercado/mercado.component';
+import { GuardiaoGuard } from './service/guardiao.guard';
+import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
+import { UsuarioComponent } from './componentes/usuarios/usuario/usuario.component';
 
 export const appRouters: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'mercados', component: MercadoComponent }
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [GuardiaoGuard] },
+  { path: 'mercados', component: MercadoComponent, canActivate: [GuardiaoGuard] },
+  { path: 'usuarioAdd', component: AddUsuarioComponent, canActivate: [GuardiaoGuard] },
+  { path: 'usuario', component: UsuarioComponent, canActivate: [GuardiaoGuard] }
 ];
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
 
@@ -24,6 +30,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     LoginComponent,
     HomeComponent,
     MercadoComponent,
+    AddUsuarioComponent,
+    UsuarioComponent,
 
   ],
   imports: [

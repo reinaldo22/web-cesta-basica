@@ -13,12 +13,15 @@ export class MercadoComponent implements OnInit {
 
   merc: Array<Mercado> = new Array();
   nome: string;
+  loading: boolean = true;
 
   constructor(private mercadoService: MercadoService) { }
   /*Chamo todos os mercados cadastrados*/
   ngOnInit() {
     this.mercadoService.getMercadoList().subscribe(data => {
       this.merc = data;
+      this.loading = false;
+
       /*console.log('>>>>>>>>>>>>>>>>>>>' + JSON.stringify(data));*/
     });
   }
@@ -28,5 +31,8 @@ export class MercadoComponent implements OnInit {
         this.merc.splice(index, 1);
       });
     }
+  }
+  atualizaPagina() {
+    location.reload();
   }
 }

@@ -1,0 +1,60 @@
+<form style="padding: 30px;" #formValidate="ngForm">
+
+
+  <div class="card shadow">
+
+    <div class="card-header">
+      <h6 style="text-align: center;">Novo Usuário</h6>
+      <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="id">ID</label>
+
+          <input type="text" class="form-control" id="id" [(ngModel)]="usuario.id" name="id" readonly="true"
+            autocomplete="false">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <span style="color:red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="usuario.nome" #nomeValidate="ngModel" name="nome"
+          required="true">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="senha">Senha</label>
+          <span style="color:red; font-size: 23px;" *ngIf="senhaValidate.invalid"> *</span>
+          <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" #senhaValidate="ngModel"
+            name="senha" required="true">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="email">E-mail</label>
+          <span style="color:red; font-size: 23px;" *ngIf="emailValidate.invalid"> *</span>
+          <input type="text" class="form-control" id="email" [(ngModel)]="usuario.email" #emailValidate="ngModel"
+            name="email" required="true">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="login">login</label>
+          <span style="color:red; font-size: 23px;" *ngIf="loginValidate.invalid"> *</span>
+          <input type="text" class="form-control" id="login" [(ngModel)]="usuario.login" #loginValidate="ngModel"
+            name="login" required="true">
+        </div>
+      </div>
+
+
+
+
+      <button type="button" class="btn btn-primary" [disabled]="formValidate.invalid" (click)="salvar()">Salvar</button>
+
+
+    </div>
+
+  </div>
+
+
+
+
+</form>
