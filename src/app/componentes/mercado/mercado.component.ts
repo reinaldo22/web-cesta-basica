@@ -12,7 +12,7 @@ import { Mercado } from 'src/app/model/mercado';
 export class MercadoComponent implements OnInit {
 
   merc: Array<Mercado> = new Array();
-  nome: string;
+  produto: string;
   loading: boolean = true;
 
   constructor(private mercadoService: MercadoService) { }
@@ -26,7 +26,7 @@ export class MercadoComponent implements OnInit {
     });
   }
   deletarMercadinho(id: number, index) {
-    if (confirm('Deseja mesmo excluir usuário?')) {
+    if (confirm('Deseja mesmo excluir Mercado?')) {
       this.mercadoService.deletarMercado(id).subscribe(data => {
         this.merc.splice(index, 1);
       });
@@ -34,5 +34,16 @@ export class MercadoComponent implements OnInit {
   }
   atualizaPagina() {
     location.reload();
+  }
+  buscaMercado() {
+    if (this.produto === '') {
+      this.mercadoService.getMercadoList().subscribe(data => {
+        this.merc = data.content;
+      });
+    } else {
+      this.mercadoService.buscaNomeProduto(this.produto).subscribe(data => {
+        this.merc = data.content;
+      });
+    }
   }
 }

@@ -11,6 +11,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 export class AddUsuarioComponent implements OnInit {
 
   usuario = new Usuario();
+  id: number;
 
   constructor(private routeActive: ActivatedRoute, private usuarioService: UsuarioService) { }
 
@@ -28,10 +29,11 @@ export class AddUsuarioComponent implements OnInit {
     if (this.usuario.id != null && this.usuario.id.toString().trim() != null) {
       this.usuarioService.UpdateUsuario(this.usuario).subscribe(data => {
         this.novo();
-        console.log('Atualizado com sucesso!!!' + data);
+
       });
     } else {
       this.usuarioService.salvarUsuario(this.usuario).subscribe(data => {
+
         this.novo();
         console.log('Usuário salvo com sucesso' + data);
       });

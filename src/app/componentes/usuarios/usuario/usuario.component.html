@@ -2,11 +2,13 @@
 <form class="form-inline">
 
   <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" placeholder="Pesquisar Nome">
+    <input type="text" class="form-control" id="nomeUser" name="nomeUser" [(ngModel)]="nomeUser"
+      placeholder="Pesquisar Nome do usuário">
   </div>
-  <button type="button" class="btn btn-primary mb-2">Buscar</button>
+  <button type="button" (click)="buscaUsuario()" class="btn btn-primary mb-2">Buscar</button>
 
-  <button type="button" style="margin-left: 5px;" class="btn btn-primary mb-2">Novo</button>
+  <button type="button" [routerLink]="['/usuarioAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"
+    class="btn btn-primary mb-2">Novo</button>
 </form>
 
 <!-- DataTales Example -->
@@ -59,18 +61,19 @@
         </tfoot>
         <tbody>
           <tr>
-          <tr *ngFor="let usuario of usuarios">
+          <tr *ngFor="let usuario of usuarios let i = index">
 
             <td>{{usuario.id}}</td>
             <td>{{usuario.nome}}</td>
             <td>{{usuario.email}}</td>
             <td>{{usuario.login}}</td>
             <td>{{usuario.senha}}</td>
-            <td> <button class="btn btn-danger">Excluir</button> </td>
-            <td> <button class="btn btn-warning">Editar</button> </td>
+            <td> <button (click)="deletUser(usuario.id, i)" class="btn btn-danger">Excluir</button> </td>
+            <td> <button [routerLink]="['/usuarioAdd' , usuario.id]" routerLinkActive="router-link-active"
+                class="btn btn-warning">Editar</button> </td>
 
 
-          </tr>
+
           <tr>
         </tbody>
       </table>

@@ -2,9 +2,9 @@
 <form class="form-inline">
 
   <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="produto" name="produto" [(ngModel)]="nome" placeholder="Pesquisar Nome">
+    <input type="text" class="form-control" id="produto" name="produto" [(ngModel)]="produto" placeholder="Pesquisar Produto">
   </div>
-  <button type="button" class="btn btn-primary mb-2" style="margin-right: 10px;">Buscar</button>
+  <button type="button" class="btn btn-primary mb-2" style="margin-right: 10px;" (click)="buscaMercado()">Buscar</button>
   <button type="button" class="btn btn-primary mb-2" (click)="atualizaPagina();">Atualizar</button>
 </form>
 

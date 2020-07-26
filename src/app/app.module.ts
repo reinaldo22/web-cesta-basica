@@ -19,6 +19,7 @@ export const appRouters: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [GuardiaoGuard] },
   { path: 'mercados', component: MercadoComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioAdd', component: AddUsuarioComponent, canActivate: [GuardiaoGuard] },
+  { path: 'usuarioAdd/:id', component: AddUsuarioComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuario', component: UsuarioComponent, canActivate: [GuardiaoGuard] }
 ];
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);

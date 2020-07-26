@@ -1,3 +1,4 @@
+import { Usuario } from './../model/usuario';
 import { AppConstants } from './../app-constants';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -20,14 +21,14 @@ export class UsuarioService {
   deletarUsuario(id: number): Observable<any> {
     return this.http.delete(AppConstants.baseUsuario + id, { responseType: 'text' });
   }
-  buscaNome(nome: string): Observable<any> {
-    return this.http.get(AppConstants.baseUsuario + 'buscaNome/' + nome);
+  buscaNome(nomeUser: string): Observable<any> {
+    return this.http.get(AppConstants.baseUsuario + 'buscaNomeUser/' + nomeUser);
   }
   salvarUsuario(user): Observable<any> {
     return this.http.post<any>(AppConstants.baseUsuario, user);
   }
-  UpdateUsuario(user): Observable<any> {
-    return this.http.put<any>(AppConstants.baseUsuario, user);
+  UpdateUsuario(user): Observable<Usuario> {
+    return this.http.put<any>(AppConstants.baseUsuario , user, { responseType: 'json' });
   }
   buscaPorId(id): Observable<any> {
 

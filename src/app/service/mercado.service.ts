@@ -20,4 +20,9 @@ export class MercadoService {
   deletarMercado(id: number): Observable<any> {
     return this.http.delete(AppConstants.baseUrl + id, { responseType: 'text' });
   }
+  buscaNomeProduto(produto: string): Observable<any> {
+
+    return this.http.get(AppConstants.baseUrl + 'buscaNome/' + produto);
+
+  }
 }
