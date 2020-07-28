@@ -1,4 +1,3 @@
-import { Roles } from './../../../model/role';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -15,7 +14,7 @@ export class UsuarioComponent implements OnInit {
   nomeUser: string;
   total: number;
 
-  roles = new Roles();
+
 
   constructor(private usuarioService: UsuarioService) { }
 

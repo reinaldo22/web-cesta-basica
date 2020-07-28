@@ -28,9 +28,9 @@ export class MercadoService {
   getUsuarioPage(pagina): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrl + 'page/' + pagina);
   }
-  relatorioDonwload(){
+  relatorioDonwload() {
 
-    return this.http.get(AppConstants.baseUrl + 'relatorio', {responseType:'text'}).subscribe(data =>{
+    return this.http.get(AppConstants.baseUrl + 'relatorio', { responseType: 'text' }).subscribe(data => {
       document.querySelector('iframe').src = data;
     });
 
