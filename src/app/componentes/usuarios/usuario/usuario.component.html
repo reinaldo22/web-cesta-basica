@@ -61,8 +61,8 @@
         </tfoot>
         <tbody>
           <tr>
-          <tr *ngFor="let usuario of usuarios let i = index">
-
+          <tr
+            *ngFor="let usuario of usuarios | paginate:{ itemsPerPage:5, currentPage: p, totalItems:total}let p, let i = index">
             <td>{{usuario.id}}</td>
             <td>{{usuario.nome}}</td>
             <td>{{usuario.email}}</td>
@@ -73,14 +73,15 @@
                 class="btn btn-warning">Editar</button> </td>
 
 
-
+          </tr>
           <tr>
         </tbody>
       </table>
 
       <!-- RODAPÉ DA PAGINACÃO-->
       <div class="text-center">
-
+        <pagination-controls (pageChange)="carregaPagina(p = $event);" previousLabel="Voltar" nextLabel="Avançar"
+          responsive="true"></pagination-controls>
       </div>
     </div>
   </div>

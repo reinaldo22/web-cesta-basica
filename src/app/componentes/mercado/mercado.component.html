@@ -2,9 +2,11 @@
 <form class="form-inline">
 
   <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="produto" name="produto" [(ngModel)]="produto" placeholder="Pesquisar Produto">
+    <input type="text" class="form-control" id="produto" name="produto" [(ngModel)]="produto"
+      placeholder="Pesquisar Produto">
   </div>
-  <button type="button" class="btn btn-primary mb-2" style="margin-right: 10px;" (click)="buscaMercado()">Buscar</button>
+  <button type="button" class="btn btn-primary mb-2" style="margin-right: 10px;"
+    (click)="buscaMercado()">Buscar</button>
   <button type="button" class="btn btn-primary mb-2" (click)="atualizaPagina();">Atualizar</button>
 </form>
 
@@ -12,7 +14,7 @@
 <div class="card shadow mb-4">
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6  style="text-align: center;">Tabela de dados cadastrados</h6>
+      <h6 style="text-align: center;">Tabela de dados cadastrados</h6>
 
       <div class="d-flex justify-content-center" *ngIf="loading">
         <div class="spinner-border" role="status">
@@ -56,7 +58,8 @@
         <tbody>
 
           <tr>
-          <tr *ngFor="let mercado of merc let i = index">
+          <tr
+            *ngFor="let mercado of merc | paginate:{ itemsPerPage:5, currentPage: p, totalItems:total}let p, let i = index">
 
             <td>{{mercado.id}}</td>
             <td>{{mercado.produto}}</td>
@@ -74,7 +77,8 @@
 
       <!-- RODAPÉ DA PAGINACÃO-->
       <div class="text-center">
-
+        <pagination-controls (pageChange)="carregaPagina(p = $event);" previousLabel="Voltar" nextLabel="Avançar"
+          responsive="true"></pagination-controls>
       </div>
     </div>
   </div>

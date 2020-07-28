@@ -12,6 +12,7 @@ import { MercadoComponent } from './componentes/mercado/mercado.component';
 import { GuardiaoGuard } from './service/guardiao.guard';
 import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
 import { UsuarioComponent } from './componentes/usuarios/usuario/usuario.component';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 export const appRouters: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,7 +40,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routes
+    routes,
+    NgxPaginationModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

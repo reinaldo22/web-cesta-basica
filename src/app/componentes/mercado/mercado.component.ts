@@ -14,6 +14,7 @@ export class MercadoComponent implements OnInit {
   merc: Array<Mercado> = new Array();
   produto: string;
   loading: boolean = true;
+  total: number;
 
   constructor(private mercadoService: MercadoService) { }
   /*Chamo todos os mercados cadastrados*/
@@ -46,4 +47,15 @@ export class MercadoComponent implements OnInit {
       });
     }
   }
+  carregaPagina(pagina) {
+    this.mercadoService.getUsuarioPage(pagina - 1).subscribe(data => {
+      this.merc = data.content;
+      this.total = data.totalElements;
+    });
+  }
+  imprimeRelatorio() {
+    return this.mercadoService.relatorioDonwload();
+
+  }
+
 }

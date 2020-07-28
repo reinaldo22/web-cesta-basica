@@ -13,6 +13,7 @@ export class UsuarioComponent implements OnInit {
   usuarios: Array<Usuario> = new Array();
   loading: boolean = true;
   nomeUser: string;
+  total: number;
 
   roles = new Roles();
 
@@ -22,6 +23,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.getUsuarioList().subscribe(data => {
       this.usuarios = data.content;
       this.loading = false;
+      this.total = data.totalElements;
     });
   }
 
@@ -29,10 +31,12 @@ export class UsuarioComponent implements OnInit {
     if (this.nomeUser === '') {
       this.usuarioService.getUsuarioList().subscribe(data => {
         this.usuarios = data.content;
+        this.total = data.totalElements;
       });
     } else {
       this.usuarioService.buscaNome(this.nomeUser).subscribe(data => {
         this.usuarios = data.content;
+        this.total = data.totalElements;
       });
     }
   }
@@ -42,6 +46,13 @@ export class UsuarioComponent implements OnInit {
         this.usuarios.splice(index, 1);
       });
     }
+  }
+
+  carregaPagina(pagina) {
+    this.usuarioService.getUsuarioPage(pagina - 1).subscribe(data => {
+      this.usuarios = data.content;
+      this.total = data.totalElements;
+    });
   }
 
 }
