@@ -36,4 +36,8 @@ export class MercadoService {
 
   }
 
+  carregaGrafico(): Observable<any> {
+
+    return this.http.get(AppConstants.baseUrl + 'grafico', );
+  }
 }

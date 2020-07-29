@@ -12,7 +12,9 @@ import { MercadoComponent } from './componentes/mercado/mercado.component';
 import { GuardiaoGuard } from './service/guardiao.guard';
 import { AddUsuarioComponent } from './componentes/usuarios/add-usuario/add-usuario.component';
 import { UsuarioComponent } from './componentes/usuarios/usuario/usuario.component';
-import { NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './componentes/bar-chart/bar-chart.component';
 
 export const appRouters: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,7 +23,9 @@ export const appRouters: Routes = [
   { path: 'mercados', component: MercadoComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioAdd', component: AddUsuarioComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioAdd/:id', component: AddUsuarioComponent, canActivate: [GuardiaoGuard] },
-  { path: 'usuario', component: UsuarioComponent, canActivate: [GuardiaoGuard] }
+  { path: 'usuario', component: UsuarioComponent, canActivate: [GuardiaoGuard] },
+  { path: 'grafico', component: BarChartComponent, canActivate: [GuardiaoGuard] }
+
 ];
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
 
@@ -34,6 +38,7 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     MercadoComponent,
     AddUsuarioComponent,
     UsuarioComponent,
+    BarChartComponent,
 
   ],
   imports: [
@@ -41,7 +46,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     FormsModule,
     HttpClientModule,
     routes,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ChartsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
