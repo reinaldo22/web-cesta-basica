@@ -62,7 +62,8 @@
 
           <tr>
           <tr
-            *ngFor="let mercado of merc | paginate:{ itemsPerPage:5, currentPage: pg, totalItems:total}let  pg, let i = index">
+
+            *ngFor="let mercado of merc | paginate:{ itemsPerPage:5, currentPage: pg, totalItems:total }let  pg; let i = index;">
 
             <td>{{mercado.id}}</td>
             <td>{{mercado.produto}}</td>

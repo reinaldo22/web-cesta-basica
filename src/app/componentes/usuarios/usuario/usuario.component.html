@@ -62,7 +62,7 @@
         <tbody>
           <tr>
           <tr
-            *ngFor="let usuario of usuarios | paginate:{ itemsPerPage:5, currentPage: p, totalItems:total}let p, let i = index">
+            *ngFor="let usuario of usuarios | paginate:{ itemsPerPage:5, currentPage: p, totalItems:total}let p; let i = index;">
             <td>{{usuario.id}}</td>
             <td>{{usuario.nome}}</td>
             <td>{{usuario.email}}</td>
