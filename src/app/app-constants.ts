@@ -2,7 +2,7 @@ export class AppConstants {
 
   public static get baseServidor(): string {
 
-    return 'http://localhost:8080/';
+    return 'https://api-cesta-compras.herokuapp.com/';
   }
 
   public static get baseLogin(): string {
