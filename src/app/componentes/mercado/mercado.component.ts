@@ -16,6 +16,8 @@ export class MercadoComponent implements OnInit {
   loading: boolean = true;
   total: number;
 
+
+
   constructor(private mercadoService: MercadoService) { }
   /*Chamo todos os mercados cadastrados*/
   ngOnInit() {

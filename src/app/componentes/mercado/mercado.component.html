@@ -62,7 +62,7 @@
 
           <tr>
           <tr
-            *ngFor="let mercado of merc | paginate:{ itemsPerPage:5, currentPage: p, totalItems:total}let p, let i = index">
+            *ngFor="let mercado of merc | paginate:{ itemsPerPage:5, currentPage: pg, totalItems:total}let  pg, let i = index">
 
             <td>{{mercado.id}}</td>
             <td>{{mercado.produto}}</td>
@@ -80,7 +80,7 @@
 
       <!-- RODAPÉ DA PAGINACÃO-->
       <div class="text-center">
-        <pagination-controls (pageChange)="carregaPagina(p = $event);" previousLabel="Voltar" nextLabel="Avançar"
+        <pagination-controls (pageChange)="carregaPagina(pg = $event);" previousLabel="Voltar" nextLabel="Avançar"
           responsive="true"></pagination-controls>
       </div>
     </div>
